@@ -1,11 +1,12 @@
 package calendar;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+/*import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;*/
 import java.util.Scanner;
 
 /*
@@ -83,7 +84,7 @@ public class Calendar {
 
 		switch (a) {
 		case 1:
-			createEvent();
+			createEvent(null);
 			break;
 		case 2:
 			removeEvent();
@@ -93,6 +94,9 @@ public class Calendar {
 			break;
 		}
 	} 
+	
+	
+    
 	
 	public static void enterName() throws FileNotFoundException {
 		File file = new File("arhive.txt");
@@ -113,12 +117,44 @@ public class Calendar {
 		
 	}
 	
+		//Описание на събитието
 	public static void enterDescription() {
+		System.out.println("Въведете описание: ");
+		Scanner sc = new Scanner(System.in);
 		
+		BufferedReader br = null;
+		try {
+			File file = new File("arhive.txt");
+			if (!file.exists())
+				file.createNewFile();
+			PrintWriter pw = new PrintWriter(file);			
+			pw.println(sc.next());
+			pw.println("Резервация");			
+			pw.close();
+			sc.close();
+			
+			br = new BufferedReader(new FileReader("arhive.txt"));
+			String line;
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (IOException e) {
+			System.out.println("error: " + e);
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				System.out.println("error: " + e);
+			}
+			
+		}
 	}
-
+	
 	// създаване на събитие
-	public static void createEvent() {
+	public static void createEvent(PrintWriter pw) {
+		System.out.println("Въведете име: ");
+		Scanner sc = new Scanner(System.in);
+		
 		BufferedReader br = null;
 		try {
 
@@ -127,12 +163,18 @@ public class Calendar {
 			if (!file.exists())
 				file.createNewFile();
 
-			PrintWriter pw = new PrintWriter(file);
-			pw.println("Хотел");
+			pw = new PrintWriter(file);
+			//PrintWriter cc = new PrintWriter(file);
+			//InputStreamReader reader = new InputStreamReader(System.in);
+			//pw = (char) ((InputStream) pw).read();
+			//sc.nextLine();
+			
+			pw.println(sc.next());
 			pw.println("Резервация");
-			pw.println("Три дена");
+			
 			pw.close();
-
+			sc.close();
+			
 			br = new BufferedReader(new FileReader("arhive.txt"));
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -183,6 +225,6 @@ public class Calendar {
 			  System.out.println(); 
 			  main(args); 
 			  } sc.close();
-			
+			 
 	}
 }
