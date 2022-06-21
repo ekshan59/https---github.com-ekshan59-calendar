@@ -3,16 +3,16 @@ package calendar;
 import java.util.Scanner;
 
 /*
- * 5. Ëè÷åí êàëåíäà
+ * 5. Личен календар
 */
 
 public class Calendar {
 
-	// èçáîð íà îïöèÿ
+	// избор на опция
 	public static boolean chooseEvent(int a) {
 
 		if (a == 1) {
-			System.out.println("Ìîëÿ ñúçäàéòå ñúáèòèå: ");
+			System.out.println("Моля създайте събитие: ");
 			enterName();
 		} else if (a == 2) {
 			graficList();
@@ -25,7 +25,7 @@ public class Calendar {
 	}
 
 	private static void enterName() {
-		System.out.println("Âúâåäåòå èìå: ");
+		System.out.println("Въведете име: ");
 		Scanner sc = new Scanner(System.in);
 		String text = sc.nextLine();
 		String[] nds = text.split("[ ,'-]+");
@@ -36,7 +36,7 @@ public class Calendar {
 	}
 
 	public static void enterDate() {
-		System.out.println("Âúâåäåòå äàòà: ");
+		System.out.println("Въведете дата: ");
 		Scanner sc = new Scanner(System.in);
 
 		String date = sc.nextLine();
@@ -50,7 +50,7 @@ public class Calendar {
 	public static void enterStartTime() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Âúâåäåòå íà÷àëåí ÷àñ: ");
+		System.out.println("Въведете начален час: ");
 
 		String time = sc.nextLine();
 		String[] sds = time.split("[ ,'-]+");
@@ -62,7 +62,7 @@ public class Calendar {
 
 	public static void enterEndTine() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Âúâåäåòå êðàåí ÷àñ: ");
+		System.out.println("Въведете краен час: ");
 
 		String end = sc.nextLine();
 		String[] eds = end.split("[ ,'-]+");
@@ -72,34 +72,34 @@ public class Calendar {
 		enterDescription();
 	}
 
-	// Îïèñàíèå íà ñúáèòèåòî
+	// Описание на събитието
 	public static void enterDescription() {
-		System.out.println("Âúâåäåòå îïèñàíèå: ");
+		System.out.println("Въведете описание: ");
 		Scanner sc = new Scanner(System.in);
 		String text = sc.nextLine();
 		String[] ds = text.split("[ ,'-]+");
 
 		System.out.println(ds[0].toString());
 
-		System.out.println("Óñïåøíî ñúçäàäåíî ñúáèòèå! \n");
+		System.out.println("Успешно създадено събитие! \n");
 
 		System.out.println();
 		main(ds);
 	}
 
-	// ãðàôèê íà ñúáèòèå
+	// график на събитие
 
 	public static void graficList() {
 
 	}
 
-	// òúðñåíå íà ñúáèòèå
+	// търсене на събитие
 
 	public static void searchEvent() {
 
 	}
 
-	// ñúçäàäåíè ñúáèòèÿ
+	// създадени събития
 
 	public static void arhiveEvent() {
 		
@@ -107,9 +107,9 @@ public class Calendar {
 
 	public static void main(String[] args) {
 
-		System.out.println("---ÌÎßÒ ÊÀËÅÍÄÀÐ---");
-		System.out.println("--Èçáåðåòå îïöèÿ:--\nÇà ñúçäàâàíå íà ñúáèòèå:  1  \n"
-				+ "Äíåâåí ãðàôèê: 2  \nÒúðñåíå íà ñúáèòèå: 3  \nÍàìåðåòå íàëè÷íîñò: 4");
+		System.out.println("---МОЯТ КАЛЕНДАР---");
+		System.out.println("--Изберете опция:--\nЗа създаване на събитие:  1  \n"
+				+ "Дневен график: 2  \nТърсене на събитие: 3  \nНамерете наличност: 4");
 
 		Scanner sc = new Scanner(System.in);
 		int event = sc.nextInt();
@@ -117,7 +117,7 @@ public class Calendar {
 		while (event == 1 || event == 2 || event == 3 || event == 4) {
 			chooseEvent(event);
 		}
-		System.out.println("Òàêàâà îïöèÿ íå ñúùåñòâóâà?\nÎïèòàé ïàê:");
+		System.out.println("Такава опция не съществува?\nОпитай пак:");
 		System.out.println();
 		main(args);
 	}
