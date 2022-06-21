@@ -1,6 +1,5 @@
 package calendar;
 
-import java.io.*;
 import java.util.Scanner;
 
 /*
@@ -8,191 +7,118 @@ import java.util.Scanner;
 */
 
 public class Calendar {
+
 	// избор на опция
-	public static void chooseEvent(int a) {
+	public static boolean chooseEvent(int a) {
 
 		if (a == 1) {
+			System.out.println("Моля създайте събитие: ");
 			enterName();
 		} else if (a == 2) {
-			removeEvent();
+			graficList();
 		} else if (a == 3) {
+			searchEvent();
+		} else if (a == 4) {
 			arhiveEvent();
 		}
-
-		/*
-		 * switch (a) { case 1: enterName(); break; case 2: removeEvent(); break; case
-		 * 3: arhiveEvent(); break; }
-		 */
+		return false;
 	}
 
-	public static void myScanner() {
-		Scanner sc = new Scanner(System.in);
-		PrintStream pw = null;
-		pw.println(sc.next());
-		//sc.close();
-		//pw.close();
-	}
-
-	public static void enterName() {
+	private static void enterName() {
 		System.out.println("Въведете име: ");
 		Scanner sc = new Scanner(System.in);
 		String text = sc.nextLine();
-		String[] words = text.split("[ ,'-]+");
-		
-		System.out.println(words.toString());
-		sc.close();	
+		String[] nds = text.split("[ ,'-]+");
+
+		System.out.println(nds[0].toString());
+
+		enterDate();
 	}
 
 	public static void enterDate() {
 		System.out.println("Въведете дата: ");
-		createEvent();
-		// enterStartTime();
+		Scanner sc = new Scanner(System.in);
+
+		String date = sc.nextLine();
+		String[] dds = date.split("[ ,'-]+");
+
+		System.out.println(dds[0].toString());
+
+		enterStartTime();
 	}
 
 	public static void enterStartTime() {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Въведете дата: ");
+		System.out.println("Въведете начален час: ");
 
-		try {
-			File file = new File("arhive.txt");
-			PrintWriter pw = new PrintWriter(file);
-			pw.println(sc.next());
-			pw.close();
-			sc.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String time = sc.nextLine();
+		String[] sds = time.split("[ ,'-]+");
 
+		System.out.println(sds[0].toString());
+
+		enterEndTine();
 	}
 
 	public static void enterEndTine() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Въведете краен час: ");
 
+		String end = sc.nextLine();
+		String[] eds = end.split("[ ,'-]+");
+
+		System.out.println(eds[0].toString());
+
+		enterDescription();
 	}
 
 	// Описание на събитието
 	public static void enterDescription() {
-		/*
-		 * System.out.println("Въведете описание: "); Scanner sc = new
-		 * Scanner(System.in);
-		 * 
-		 * BufferedReader br = null; try { File file = new File("arhive.txt"); if
-		 * (!file.exists()) file.createNewFile(); PrintWriter pw = new
-		 * PrintWriter(file); pw.println(sc.next()); pw.println("Резервация");
-		 * pw.close(); sc.close();
-		 * 
-		 * br = new BufferedReader(new FileReader("arhive.txt")); String line; while
-		 * ((line = br.readLine()) != null) { System.out.println(line); } } catch
-		 * (IOException e) { System.out.println("error: " + e); } finally { try {
-		 * br.close(); } catch (IOException e) { System.out.println("error: " + e); }
-		 * 
-		 * }
-		 */
-	}
-
-	// създаване на събитие
-	public static void createEvent() {
-		System.out.println("Въведете име: ");
+		System.out.println("Въведете описание: ");
 		Scanner sc = new Scanner(System.in);
-		// BufferedReader br = null;
-		PrintWriter pw;
+		String text = sc.nextLine();
+		String[] ds = text.split("[ ,'-]+");
 
-		File file = new File("arhive.txt");
+		System.out.println(ds[0].toString());
 
-		if (!file.exists())
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
+		System.out.println("Успешно създадено събитие! \n");
 
-		try {
-			pw = new PrintWriter(file);
-			pw.println(sc.next());
-
-			System.out.println("Въведете дата: ");
-			pw.println(sc.next());
-
-			System.out.println("Въведете начален час: ");
-			pw.println(sc.next());
-
-			System.out.println("Въведете краен час: ");
-			pw.println(sc.next());
-
-			System.out.println("Въведете описание: ");
-			pw.println(sc.next());
-
-			pw.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		sc.close();
-		//System.out.print("Събитие: ", arhiveEvent());
-
-		/*
-		 * br = new BufferedReader(new FileReader("arhive.txt")); String line; while
-		 * ((line = br.readLine()) != null) { System.out.println(line); } } catch
-		 * (IOException e) { System.out.println("error: " + e); } finally { try {
-		 * br.close(); } catch (IOException e) { System.out.println("error: " + e); }
-		 * 
-		 * }
-		 */
+		System.out.println();
+		main(ds);
 	}
 
-	// премахване на събитие
-	public static void removeEvent() {
+	// график на събитие
+
+	public static void graficList() {
+
+	}
+
+	// търсене на събитие
+
+	public static void searchEvent() {
 
 	}
 
 	// създадени събития
+
 	public static void arhiveEvent() {
-
-		BufferedReader br = null;
-
-		try {
-			br = new BufferedReader(new FileReader("arhive.txt"));
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
-		}
-
-		String line;
-
-		try {
-			while ((line = br.readLine()) != null) {
-				System.out.println(line);
-
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
 	}
 
 	public static void main(String[] args) {
 
 		System.out.println("---МОЯТ КАЛЕНДАР---");
 		System.out.println("--Изберете опция:--\nЗа създаване на събитие:  1  \n"
-				+ "За премахване на събитие: 2  \nВашите създадени събития: 3");
+				+ "Дневен график: 2  \nТърсене на събитие: 3  \nНамерете наличност: 4");
 
 		Scanner sc = new Scanner(System.in);
-
 		int event = sc.nextInt();
 
-		if (event == 1 || event == 2 || event == 3) {
+		while (event == 1 || event == 2 || event == 3 || event == 4) {
 			chooseEvent(event);
-		} else {
-			System.out.println("Такава опция не съществува?\nОпитай пак:");
-			System.out.println();
-			main(args);
 		}
-
-		sc.close();
-
+		System.out.println("Такава опция не съществува?\nОпитай пак:");
+		System.out.println();
+		main(args);
 	}
 }
