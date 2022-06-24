@@ -1,12 +1,22 @@
 package calendar;
 
 /*
+<<<<<<< HEAD:src/calendar/Calendar.java
  *  ����� ��������
 */
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+=======
+ * 5. Личен календар
+*/
+
+public class Calendar {
+
+	// избор на опция
+	public static boolean chooseEvent(int a) {
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 
 public class Calendar {
 	
@@ -43,8 +53,13 @@ public class Calendar {
 		
 	public static void chooseEvent(int a) {
 		if (a == 1) {
+<<<<<<< HEAD:src/calendar/Calendar.java
 			System.out.println("���� �������� �������: ");
 			optionEvent();
+=======
+			System.out.println("Моля създайте събитие: ");
+			enterName();
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 		} else if (a == 2) {
 			listEvent();
 		} else if (a == 3) {
@@ -53,6 +68,7 @@ public class Calendar {
 			availableEvent();
 		}
 	}
+<<<<<<< HEAD:src/calendar/Calendar.java
 	
 	public static void availableEvent() {
 		readyEvent();
@@ -60,11 +76,38 @@ public class Calendar {
 	}
 
 	public static void createString() {
+=======
+
+	private static void enterName() {
+		System.out.println("Въведете име: ");
+		Scanner sc = new Scanner(System.in);
+		String text = sc.nextLine();
+		String[] nds = text.split("[ ,'-]+");
+
+		System.out.println(nds[0].toString());
+
+		enterDate();
+	}
+
+	public static void enterDate() {
+		System.out.println("Въведете дата: ");
+		Scanner sc = new Scanner(System.in);
+
+		String date = sc.nextLine();
+		String[] dds = date.split("[ ,'-]+");
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 
 		Scanner sc = new Scanner(System.in);
 
+<<<<<<< HEAD:src/calendar/Calendar.java
 		System.out.println("�������� ���: ");
 		String name = (sc.nextLine());
+=======
+		System.out.println("Въведете начален час: ");
+
+		String time = sc.nextLine();
+		String[] sds = time.split("[ ,'-]+");
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 
 		System.out.println("�������� ����: ");
 		String date = (sc.nextLine());
@@ -72,6 +115,7 @@ public class Calendar {
 		System.out.println("�������� ������� ���: ");
 		String start = (sc.nextLine());
 
+<<<<<<< HEAD:src/calendar/Calendar.java
 		System.out.println("�������� ����� ���: ");
 		String end = (sc.nextLine());
 
@@ -117,6 +161,50 @@ public class Calendar {
 		for (String i : event) {
 		      System.out.println(i);
 		    }	
+=======
+	public static void enterEndTine() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Въведете краен час: ");
+
+		String end = sc.nextLine();
+		String[] eds = end.split("[ ,'-]+");
+
+		System.out.println(eds[0].toString());
+
+		enterDescription();
+	}
+
+	// Описание на събитието
+	public static void enterDescription() {
+		System.out.println("Въведете описание: ");
+		Scanner sc = new Scanner(System.in);
+		String text = sc.nextLine();
+		String[] ds = text.split("[ ,'-]+");
+
+		System.out.println(ds[0].toString());
+
+		System.out.println("Успешно създадено събитие! \n");
+
+		System.out.println();
+		main(ds);
+	}
+
+	// график на събитие
+
+	public static void graficList() {
+
+	}
+
+	// търсене на събитие
+
+	public static void searchEvent() {
+
+	}
+
+	// създадени събития
+
+	public static void arhiveEvent() {
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 		
 	}
 	
@@ -124,6 +212,7 @@ public class Calendar {
 
 		Scanner sc = new Scanner(System.in);
 
+<<<<<<< HEAD:src/calendar/Calendar.java
 		ArrayList<String> event = new ArrayList<String>();
 		System.out.println("�������� ���: ");
 		event.add(sc.nextLine());
@@ -141,6 +230,11 @@ public class Calendar {
 		    }
 		System.out.println();
 	}
+=======
+		System.out.println("---МОЯТ КАЛЕНДАР---");
+		System.out.println("--Изберете опция:--\nЗа създаване на събитие:  1  \n"
+				+ "Дневен график: 2  \nТърсене на събитие: 3  \nНамерете наличност: 4");
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 
 	public static void main(String[] args) throws SQLException {
 		Scanner sc = new Scanner(System.in);
@@ -160,5 +254,11 @@ public class Calendar {
 				System.err.println("\n������ ����� �� ����������?\n������ ���:\n");
 			}
 		}
+<<<<<<< HEAD:src/calendar/Calendar.java
+=======
+		System.out.println("Такава опция не съществува?\nОпитай пак:");
+		System.out.println();
+		main(args);
+>>>>>>> fd622c10d9be80a32827d094e7d9943809304c0b:src/календар/Calendar.java
 	}
 }
