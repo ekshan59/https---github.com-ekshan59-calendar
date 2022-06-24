@@ -1,124 +1,164 @@
 package calendar;
 
-import java.util.Scanner;
-
 /*
- * 5. Личен календар
+ *  Личен календар
 */
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Calendar {
-
-	// избор на опция
-	public static boolean chooseEvent(int a) {
-
+	
+	public static void optionEvent() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nИзбери начин на създаване:\n1 Създай със String\n2 Създай с ArrayList");
+		
+		int a = sc.nextInt();
+		if (a == 1) {
+			createString();
+		} else if (a == 2) {
+			createArray();
+		} else {
+			System.err.println("\nТакава опция не съществува?\nОпитай пак:\n");
+		}
+	}
+	
+	public static void eventOption() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Намери събитие по дата: \n20 "
+		+ "За събитие на 20.08.2022г.\n26 За събитие на 26.08.2022г.");
+		int b = sc.nextInt();
+		switch (b) {
+		  case 20:
+			readyEvent();
+			break;
+		  case 26:
+			newEvent();
+			break;
+			default:
+			System.err.println("\nТакава опция не съществува?\nОпитай пак:\n");
+		}
+	}
+		
+	public static void chooseEvent(int a) {
 		if (a == 1) {
 			System.out.println("Моля създайте събитие: ");
-			enterName();
+			optionEvent();
 		} else if (a == 2) {
-			graficList();
+			listEvent();
 		} else if (a == 3) {
-			searchEvent();
+			eventOption();
 		} else if (a == 4) {
-			arhiveEvent();
+			availableEvent();
 		}
-		return false;
+	}
+	
+	public static void availableEvent() {
+		readyEvent();
+		newEvent();
 	}
 
-	private static void enterName() {
+	public static void createString() {
+
+		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Въведете име: ");
-		Scanner sc = new Scanner(System.in);
-		String text = sc.nextLine();
-		String[] nds = text.split("[ ,'-]+");
+		String name = (sc.nextLine());
 
-		System.out.println(nds[0].toString());
-
-		enterDate();
-	}
-
-	public static void enterDate() {
 		System.out.println("Въведете дата: ");
-		Scanner sc = new Scanner(System.in);
-
-		String date = sc.nextLine();
-		String[] dds = date.split("[ ,'-]+");
-
-		System.out.println(dds[0].toString());
-
-		enterStartTime();
-	}
-
-	public static void enterStartTime() {
-		Scanner sc = new Scanner(System.in);
+		String date = (sc.nextLine());
 
 		System.out.println("Въведете начален час: ");
+		String start = (sc.nextLine());
 
-		String time = sc.nextLine();
-		String[] sds = time.split("[ ,'-]+");
-
-		System.out.println(sds[0].toString());
-
-		enterEndTine();
-	}
-
-	public static void enterEndTine() {
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Въведете краен час: ");
+		String end = (sc.nextLine());
 
-		String end = sc.nextLine();
-		String[] eds = end.split("[ ,'-]+");
-
-		System.out.println(eds[0].toString());
-
-		enterDescription();
-	}
-
-	// Описание на събитието
-	public static void enterDescription() {
 		System.out.println("Въведете описание: ");
-		Scanner sc = new Scanner(System.in);
-		String text = sc.nextLine();
-		String[] ds = text.split("[ ,'-]+");
+		String descript = (sc.nextLine());
 
-		System.out.println(ds[0].toString());
-
-		System.out.println("Успешно създадено събитие! \n");
-
-		System.out.println();
-		main(ds);
+		String result = ("\nИме: " + name + "\nДата: " + date + "\nОт " + 
+		start + " до " + end + "\n" + "Описание: " + descript + "\n");
+		System.out.println(result);
 	}
-
-	// график на събитие
-
-	public static void graficList() {
-
+	
+	public static void readyEvent() {
+		ArrayList<String> event = new ArrayList<String>();
+		event.add("\nИме: Банка 'ДСК'");
+		event.add("Дата: 20.08.2022г.");
+		event.add("Начало от: 09.00ч.");
+		event.add("Край: до 10.00ч.");
+		event.add("Информация за кредит\n");
+		for (String i : event) {
+		      System.out.println(i);
+		    }	
 	}
-
-	// търсене на събитие
-
-	public static void searchEvent() {
-
+	
+	public static void newEvent() {
+		String name = "Дигитално общество";
+		String date = "26.08.2022г";
+		String start = "13.00ч.";
+		String end = "14.00ч.";
+		String descript = "Записване за курс";
+		String result = ("\nИме: " + name + "\nДата: " + date + "\nНачало От: " + 
+		start + "\nКрай до: " + end + "\n" + "Описание: " + descript + "\n");
+			System.out.println(result);
 	}
-
-	// създадени събития
-
-	public static void arhiveEvent() {
+	
+	public static void listEvent() {
+		System.out.println("\n===Програма за деня:===");
+		ArrayList<String> event = new ArrayList<String>();
+		event.add("От 08.00ч. до 09.00ч. 'Среща с екипа'");
+		event.add("От 11.00ч. до 12.00ч. 'Прием на клиент'");
+		event.add("От 14.00ч. до 15.00ч. 'Преинсталация на компютър'");
+		event.add("От 16.00ч. до 17.00ч. 'Обновяване на сайта'");
+		event.add("От 19/00ч. до 21.00ч. 'Вечеря на открито'\n");
+		for (String i : event) {
+		      System.out.println(i);
+		    }	
 		
 	}
-
-	public static void main(String[] args) {
-
-		System.out.println("---МОЯТ КАЛЕНДАР---");
-		System.out.println("--Изберете опция:--\nЗа създаване на събитие:  1  \n"
-				+ "Дневен график: 2  \nТърсене на събитие: 3  \nНамерете наличност: 4");
+	
+	public static void createArray() {
 
 		Scanner sc = new Scanner(System.in);
-		int event = sc.nextInt();
 
-		while (event == 1 || event == 2 || event == 3 || event == 4) {
-			chooseEvent(event);
-		}
-		System.out.println("Такава опция не съществува?\nОпитай пак:");
+		ArrayList<String> event = new ArrayList<String>();
+		System.out.println("Въведете име: ");
+		event.add(sc.nextLine());
+		System.out.println("Въведете дата: ");
+		event.add(sc.nextLine());
+		System.out.println("Въведете начален час: ");
+		event.add(sc.nextLine());
+		System.out.println("Въведете краен час: ");
+		event.add(sc.nextLine());
+		System.out.println("Въведете описание: ");
+		event.add(sc.nextLine());
 		System.out.println();
-		main(args);
+		for (String i : event) {
+		      System.out.println(i);
+		    }
+		System.out.println();
+	}
+
+	public static void main(String[] args) throws SQLException {
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			System.out.println("  ---МОЯТ КАЛЕНДАР---");
+			System.out.println("  --Изберете опция:--\n1 За създаване на събитие:\n"
+			+ "2 Дневен график:\n3 Търсене на събитие:\n4 Намерете наличност:\n5 Изход");
+
+			int command = sc.nextInt();
+
+			if (command == 1 || command == 2 || command == 3 || command == 4) {
+				chooseEvent(command);
+			} else if (command == 5) {
+				System.exit(0);
+			} else {
+				System.err.println("\nТакава опция не съществува?\nОпитай пак:\n");
+			}
+		}
 	}
 }
