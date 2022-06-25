@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Calendar {
 
-	//Избор за създаване на събитие
+	//Г€Г§ГЎГ®Г° Г§Г  Г±ГєГ§Г¤Г ГўГ Г­ГҐ Г­Г  Г±ГєГЎГЁГІГЁГҐ
 	public static void optionEvent() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\nИзбери начин на създаване:\n1 Създай със String\n2 Създай с ArrayList");
+		System.out.println("\nГ€Г§ГЎГҐГ°ГЁ Г­Г Г·ГЁГ­ Г­Г  Г±ГєГ§Г¤Г ГўГ Г­ГҐ:\n1 Г‘ГєГ§Г¤Г Г© Г±ГєГ± String\n2 Г‘ГєГ§Г¤Г Г© Г± ArrayList");
 
 		int a = sc.nextInt();
 		if (a == 1) {
@@ -16,15 +16,15 @@ public class Calendar {
 		} else if (a == 2) {
 			createArray();
 		} else {
-			System.err.println("\nТакава опция не съществува?\nОпитай пак:\n");
+			System.err.println("\nГ’Г ГЄГ ГўГ  Г®ГЇГ¶ГЁГї Г­ГҐ Г±ГєГ№ГҐГ±ГІГўГіГўГ ?\nГЋГЇГЁГІГ Г© ГЇГ ГЄ:\n");
 		}
 	}
 
-	//Търсене на събитие по дата
+	//Г’ГєГ°Г±ГҐГ­ГҐ Г­Г  Г±ГєГЎГЁГІГЁГҐ ГЇГ® Г¤Г ГІГ 
 	public static void eventOption() {
 		Scanner sc = new Scanner(System.in);
 		System.out
-				.println("Намери събитие по дата: \n20 " + "За събитие на 20.08.2022г.\n26 За събитие на 26.08.2022г.");
+				.println("ГЌГ Г¬ГҐГ°ГЁ Г±ГєГЎГЁГІГЁГҐ ГЇГ® Г¤Г ГІГ : \n20 " + "Г‡Г  Г±ГєГЎГЁГІГЁГҐ Г­Г  20.08.2022ГЈ.\n26 Г‡Г  Г±ГєГЎГЁГІГЁГҐ Г­Г  26.08.2022ГЈ.");
 		int b = sc.nextInt();
 		switch (b) {
 		case 20:
@@ -34,14 +34,14 @@ public class Calendar {
 			newEvent();
 			break;
 		default:
-			System.err.println("\nТакава опция не съществува?\nОпитай пак:\n");
+			System.err.println("\nГ’Г ГЄГ ГўГ  Г®ГЇГ¶ГЁГї Г­ГҐ Г±ГєГ№ГҐГ±ГІГўГіГўГ ?\nГЋГЇГЁГІГ Г© ГЇГ ГЄ:\n");
 		}
 	}
 
-	//Избрана опция за изпълнение
+	//Г€Г§ГЎГ°Г Г­Г  Г®ГЇГ¶ГЁГї Г§Г  ГЁГ§ГЇГєГ«Г­ГҐГ­ГЁГҐ
 	public static void chooseEvent(int a) {
 		if (a == 1) {
-			System.out.println("Моля създайте събитие: ");
+			System.out.println("ГЊГ®Г«Гї Г±ГєГ§Г¤Г Г©ГІГҐ Г±ГєГЎГЁГІГЁГҐ: ");
 			optionEvent();
 		} else if (a == 2) {
 			listEvent();
@@ -52,110 +52,110 @@ public class Calendar {
 		}
 	}
 
-	//Налични опции
+	//ГЌГ Г«ГЁГ·Г­ГЁ Г®ГЇГ¶ГЁГЁ
 	public static void availableEvent() {
 		readyEvent();
 		newEvent();
 	}
 
-	//Създаване чрез String
+	//Г‘ГєГ§Г¤Г ГўГ Г­ГҐ Г·Г°ГҐГ§ String
 	public static void createString() {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Въведете име: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ ГЁГ¬ГҐ: ");
 		String name = (sc.nextLine());
 
-		System.out.println("Въведете дата: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ Г¤Г ГІГ : ");
 		String date = (sc.nextLine());
 
-		System.out.println("Въведете начален час: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ Г­Г Г·Г Г«ГҐГ­ Г·Г Г±: ");
 		String start = (sc.nextLine());
 
-		System.out.println("Въведете краен час: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ ГЄГ°Г ГҐГ­ Г·Г Г±: ");
 		String end = (sc.nextLine());
 
-		System.out.println("Въведете описание: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ Г®ГЇГЁГ±Г Г­ГЁГҐ: ");
 		String descript = (sc.nextLine());
 
-		String result = ("\nИме: " + name + "\nДата: " + date + "\nНачало от " 
-				+ start + "\nКрай до " + end + "\n" + "Описание: " + descript);
+		String result = ("\nГ€Г¬ГҐ: " + name + "\nГ„Г ГІГ : " + date + "\nГЌГ Г·Г Г«Г® Г®ГІ " 
+				+ start + "\nГЉГ°Г Г© Г¤Г® " + end + "\n" + "ГЋГЇГЁГ±Г Г­ГЁГҐ: " + descript);
 		System.out.println(result);
-		System.out.println("Успешно създадено стбитие!\n");
+		System.out.println("Г“Г±ГЇГҐГёГ­Г® Г±ГєГ§Г¤Г Г¤ГҐГ­Г® Г±ГІГЎГЁГІГЁГҐ!\n");
 	}
 
-	//Създадено събитие 
+	//Г‘ГєГ§Г¤Г Г¤ГҐГ­Г® Г±ГєГЎГЁГІГЁГҐ 
 	public static void readyEvent() {
 		ArrayList<String> event = new ArrayList<String>();
-		event.add("\nИме: Банка 'ДСК'");
-		event.add("Дата: 20.08.2022г.");
-		event.add("Начало от: 09.00ч.");
-		event.add("Край: до 10.00ч.");
-		event.add("Информация за кредит\n");
+		event.add("\nГ€Г¬ГҐ: ГЃГ Г­ГЄГ  'Г„Г‘ГЉ'");
+		event.add("Г„Г ГІГ : 20.08.2022ГЈ.");
+		event.add("ГЌГ Г·Г Г«Г® Г®ГІ: 09.00Г·.");
+		event.add("ГЉГ°Г Г©: Г¤Г® 10.00Г·.");
+		event.add("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г§Г  ГЄГ°ГҐГ¤ГЁГІ\n");
 		for (String i : event) {
 			System.out.println(i);
 		}
 	}
 
-	//Създадено събитие
+	//Г‘ГєГ§Г¤Г Г¤ГҐГ­Г® Г±ГєГЎГЁГІГЁГҐ
 	public static void newEvent() {
-		String name = "Дигитално общество";
-		String date = "26.08.2022г";
-		String start = "13.00ч.";
-		String end = "14.00ч.";
-		String descript = "Записване за курс";
-		String result = ("\nИме: " + name + "\nДата: " + date + "\nНачало От: " + 
-				start + "\nКрай до: " + end + "\n" + "Описание: " + descript + "\n");
+		String name = "Г„ГЁГЈГЁГІГ Г«Г­Г® Г®ГЎГ№ГҐГ±ГІГўГ®";
+		String date = "26.08.2022ГЈ";
+		String start = "13.00Г·.";
+		String end = "14.00Г·.";
+		String descript = "Г‡Г ГЇГЁГ±ГўГ Г­ГҐ Г§Г  ГЄГіГ°Г±";
+		String result = ("\nГ€Г¬ГҐ: " + name + "\nГ„Г ГІГ : " + date + "\nГЌГ Г·Г Г«Г® ГЋГІ: " + 
+				start + "\nГЉГ°Г Г© Г¤Г®: " + end + "\n" + "ГЋГЇГЁГ±Г Г­ГЁГҐ: " + descript + "\n");
 		System.out.println(result);
 	}
 
-	//Създадена програма за деня
+	//Г‘ГєГ§Г¤Г Г¤ГҐГ­Г  ГЇГ°Г®ГЈГ°Г Г¬Г  Г§Г  Г¤ГҐГ­Гї
 	public static void listEvent() {
-		System.out.println("\n===Програма за деня:===");
+		System.out.println("\n===ГЏГ°Г®ГЈГ°Г Г¬Г  Г§Г  Г¤ГҐГ­Гї:===");
 		ArrayList<String> event = new ArrayList<String>();
-		event.add("От 08.00ч. до 09.00ч. 'Среща с екипа'");
-		event.add("От 11.00ч. до 12.00ч. 'Прием на клиент'");
-		event.add("От 14.00ч. до 15.00ч. 'Преинсталация на компютър'");
-		event.add("От 16.00ч. до 17.00ч. 'Обновяване на сайта'");
-		event.add("От 19/00ч. до 21.00ч. 'Вечеря на открито'\n");
+		event.add("ГЋГІ 08.00Г·. Г¤Г® 09.00Г·. 'Г‘Г°ГҐГ№Г  Г± ГҐГЄГЁГЇГ '");
+		event.add("ГЋГІ 11.00Г·. Г¤Г® 12.00Г·. 'ГЏГ°ГЁГҐГ¬ Г­Г  ГЄГ«ГЁГҐГ­ГІ'");
+		event.add("ГЋГІ 14.00Г·. Г¤Г® 15.00Г·. 'ГЏГ°ГҐГЁГ­Г±ГІГ Г«Г Г¶ГЁГї Г­Г  ГЄГ®Г¬ГЇГѕГІГєГ°'");
+		event.add("ГЋГІ 16.00Г·. Г¤Г® 17.00Г·. 'ГЋГЎГ­Г®ГўГїГўГ Г­ГҐ Г­Г  Г±Г Г©ГІГ '");
+		event.add("ГЋГІ 19/00Г·. Г¤Г® 21.00Г·. 'Г‚ГҐГ·ГҐГ°Гї Г­Г  Г®ГІГЄГ°ГЁГІГ®'\n");
 		for (String i : event) {
 			System.out.println(i);
 		}
 
 	}
 
-	//Създаване чрез ArrayList
+	//Г‘ГєГ§Г¤Г ГўГ Г­ГҐ Г·Г°ГҐГ§ ArrayList
 	public static void createArray() {
 		
 		Scanner sc = new Scanner(System.in);
 
 		ArrayList<String> event = new ArrayList<String>();
-		System.out.println("Въведете име: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ ГЁГ¬ГҐ: ");
 		event.add(sc.nextLine());
-		System.out.println("Въведете дата: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ Г¤Г ГІГ : ");
 		event.add(sc.nextLine());
-		System.out.println("Въведете начален час: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ Г­Г Г·Г Г«ГҐГ­ Г·Г Г±: ");
 		event.add(sc.nextLine());
-		System.out.println("Въведете краен час: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ ГЄГ°Г ГҐГ­ Г·Г Г±: ");
 		event.add(sc.nextLine());
-		System.out.println("Въведете описание: ");
+		System.out.println("Г‚ГєГўГҐГ¤ГҐГІГҐ Г®ГЇГЁГ±Г Г­ГЁГҐ: ");
 		event.add(sc.nextLine());
 		System.out.println();
 		
 		for (String i : event) {
 			System.out.println(i);
 		}
-		System.out.println("Успешно създадено стбитие!\n");
+		System.out.println("Г“Г±ГЇГҐГёГ­Г® Г±ГєГ§Г¤Г Г¤ГҐГ­Г® Г±ГІГЎГЁГІГЁГҐ!\n");
 	}
 
-	//Извеждане в конзолата
+	//Г€Г§ГўГҐГ¦Г¤Г Г­ГҐ Гў ГЄГ®Г­Г§Г®Г«Г ГІГ 
 	public static void main(String[] args) throws SQLException {
 		Scanner sc = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("  ---МОЯТ КАЛЕНДАР---");
-			System.out.println("  --Изберете опция:--\n1 За създаване на събитие:\n"
-					+ "2 Дневен график:\n3 Търсене на събитие:\n4 Намерете наличност:\n5 Изход");
+			System.out.println("  ---ГЊГЋГџГ’ ГЉГЂГ‹Г…ГЌГ„ГЂГђ---");
+			System.out.println("  --Г€Г§ГЎГҐГ°ГҐГІГҐ Г®ГЇГ¶ГЁГї:--\n1 Г‡Г  Г±ГєГ§Г¤Г ГўГ Г­ГҐ Г­Г  Г±ГєГЎГЁГІГЁГҐ:\n"
+					+ "2 Г„Г­ГҐГўГҐГ­ ГЈГ°Г ГґГЁГЄ:\n3 Г’ГєГ°Г±ГҐГ­ГҐ Г­Г  Г±ГєГЎГЁГІГЁГҐ:\n4 ГЌГ Г¬ГҐГ°ГҐГІГҐ Г­Г Г«ГЁГ·Г­Г®Г±ГІ:\n5 Г€Г§ГµГ®Г¤");
 
 			int command = sc.nextInt();
 
@@ -164,8 +164,8 @@ public class Calendar {
 			} else if (command == 5) {
 				System.exit(0);
 			} else {
-				System.err.println("\nТакава опция не съществува?\nОпитай пак:\n");
+				System.err.println("\nГ’Г ГЄГ ГўГ  Г®ГЇГ¶ГЁГї Г­ГҐ Г±ГєГ№ГҐГ±ГІГўГіГўГ ?\nГЋГЇГЁГІГ Г© ГЇГ ГЄ:\n");
 			}
 		}
 	}
-}
+} 
