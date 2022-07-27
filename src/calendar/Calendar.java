@@ -2,8 +2,6 @@ package calendar;
 
 import java.util.Scanner;
 
-import calendar.List;
-
 public class Calendar {
 
 	public static void editingEvent(int num) {
